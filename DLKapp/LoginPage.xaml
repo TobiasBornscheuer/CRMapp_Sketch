@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DLKapp.LoginPage"
+             Title="Login"
+             xmlns:local="clr-namespace:DLKapp">
+
+    <ContentPage.BindingContext>
+        <local:LoginPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="50">
+
+        <Entry x:Name="username_entryfield" Placeholder="Username" Text="{Binding Username}"/>
+        <Entry x:Name="password_entryfield" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+        <Button x:Name="loginrequest_button" Text="Login" Command="{Binding LoginRequestCommand}"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Remeber me" VerticalOptions="Center" />
+            <CheckBox x:Name="save_logindata_checkbox" IsChecked="{Binding SaveLoginData}"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

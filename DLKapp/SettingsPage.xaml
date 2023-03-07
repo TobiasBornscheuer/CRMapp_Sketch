@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DLKapp.SettingsPage"
+             xmlns:local="clr-namespace:DLKapp">
+
+    <ContentPage.BindingContext>
+        <local:SettingsPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout BackgroundColor="Black" Orientation="Vertical">
+        <Button x:Name="GoToLoginscreen_button" Text="Log out" Command="{Binding LogoutCommand}"></Button>
+        <Button x:Name="DeleteLoginData_button" Text="Delete Login Data" Command="{Binding DeleteLoginDataCommand}"></Button>
+    </StackLayout>
+
+</ContentPage>
