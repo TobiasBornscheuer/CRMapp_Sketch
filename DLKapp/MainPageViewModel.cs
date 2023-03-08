@@ -13,23 +13,8 @@ namespace DLKapp
         // Constructor
         public MainPageViewModel() 
         {
-            TableDataObjectList = new ObservableCollection<TableDataObject>()
-            {
-                new TableDataObject("anne", "DBSV"),
-                new TableDataObject("anton", "BFW"),
-                new TableDataObject("simon", "SPD"),
-                new TableDataObject("robert", "BND"),
-                new TableDataObject("sibille", "AKW"),
-                new TableDataObject("monika", "LMG"),
-                new TableDataObject("axel", "ALN"),
-                new TableDataObject("erhardt", "BCP"),
-                new TableDataObject("sabrina", "LKC"),
-                new TableDataObject("emil", "TDC"),
-                new TableDataObject("konstanze", "PNL"),
-                new TableDataObject("sap", "f"),
-                new TableDataObject("papenmeier", "f"),
-                new TableDataObject("amazon", "f")
-            };
+            // initialize empty ObservableCollection
+            TableDataObjectList = new ObservableCollection<TableDataObject>();
         }
 
         // Fields
@@ -39,8 +24,19 @@ namespace DLKapp
         public ICommand SearchCommand => new Command<string>(Search);
         void Search(string query)
         {
-            // search logic
-
+            var searchterm = query.ToLowerInvariant();
+            if (!string.IsNullOrEmpty(searchterm)) 
+            {
+                if(TableDataObjectList != null)
+                    TableDataObjectList.Clear();
+                foreach (var obj in ConvertedTableData_temp.data)
+                {
+                    if (obj.name.ToLowerInvariant().Contains(searchterm)) 
+                    {  
+                        TableDataObjectList.Add(obj);
+                    }
+                }
+            }
         }
 
         public ICommand GoToOptionsCommand => new Command(GoToOptions);

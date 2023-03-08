@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DLKapp.LoginPage"
              Title="Login"
-             xmlns:local="clr-namespace:DLKapp">
+             xmlns:local="clr-namespace:DLKapp" xmlns:comment="setting namespace to global, to gain access to the ViewModel">
 
+    <!-- Setting BindingContext to the ViewModel, to be able to directly bind to fields of the ViewModel. 
+         Also instantiates the ViewModel when the Page is constructed-->
     <ContentPage.BindingContext>
         <local:LoginPageViewModel />
     </ContentPage.BindingContext>

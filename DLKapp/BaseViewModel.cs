@@ -4,6 +4,11 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
+/*
+ * Parent class to all ViewModels. Implementing the PropertyChanged-EventHandler, the PropertyChanged-Event,
+ * and the OnPropertyChanged-Function this way, saves writing alot of boilerplate code in the ViewModels.
+ */
+
 namespace DLKapp
 {
     public class BaseViewModel : INotifyPropertyChanged

@@ -14,7 +14,7 @@ namespace DLKapp
         // Constructor
         public SettingsPageViewModel()
         {
-            // initialize values
+            // initialize values once fitting fields have been added (HighContrastMode, etc.)
         }
 
         // Fields
@@ -29,7 +29,7 @@ namespace DLKapp
             else if (userinput == "log out")
             {
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
-                await App.Current.MainPage.Navigation.PopToRootAsync();
+                await App.Current.MainPage.Navigation.PopToRootAsync(); // delete everz page on the NavigationStack except the LoginPage
             }
         }
 

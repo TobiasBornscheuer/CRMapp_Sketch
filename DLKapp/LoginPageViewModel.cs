@@ -14,6 +14,7 @@ namespace DLKapp
         // Constructor
         public LoginPageViewModel()
         {
+            // Instantiate the fields with the data from the SecureStorage. Checkbox unchecked by default.
             Username = Xamarin.Essentials.SecureStorage.GetAsync(SS_Keys.username).Result;
             Password = Xamarin.Essentials.SecureStorage.GetAsync(SS_Keys.password).Result;
             SaveLoginData = false;
@@ -68,12 +69,12 @@ namespace DLKapp
                 await Xamarin.Essentials.SecureStorage.SetAsync(SS_Keys.password, Password);
                 await Xamarin.Essentials.SecureStorage.SetAsync(SS_Keys.username, Username);
                 Application.Current.MainPage = new NavigationPage(new MainPage());
-                await App.Current.MainPage.Navigation.PopToRootAsync();
+                await App.Current.MainPage.Navigation.PopToRootAsync(); // delete LoginPageInstance and set MainPage as RootPage, to keep NavigationStack clean.
             }
             else if (Username != null && Password != null)
             {
                 Application.Current.MainPage = new NavigationPage(new MainPage());
-                await App.Current.MainPage.Navigation.PopToRootAsync();
+                await App.Current.MainPage.Navigation.PopToRootAsync(); // delete LoginPageInstance and set MainPage as RootPage, to keep NavigationStack clean.
             }
             else
             {

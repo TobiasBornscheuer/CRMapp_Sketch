@@ -15,6 +15,7 @@ namespace DLKapp
             InitializeComponent();
         }
 
+        // Removes the BackButton from the page
         protected override bool OnBackButtonPressed()
         {
             return true;

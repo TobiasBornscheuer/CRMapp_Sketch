@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DLKapp.MainPage"
              NavigationPage.HasNavigationBar="False"
-             xmlns:local="clr-namespace:DLKapp">
+             xmlns:local="clr-namespace:DLKapp" xmlns:comment="setting namespace to global, to gain access to the ViewModel">
 
+    <!-- Setting BindingContext to the ViewModel, to be able to directly bind to fields of the ViewModel. 
+         Also instantiates the ViewModel when the Page is constructed-->
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
 
     <StackLayout VerticalOptions="Center" Padding="5">
+        
         <Button x:Name="settings_button" HorizontalOptions="End" Text="Settings" CornerRadius="7" Command="{Binding GoToOptionsCommand}"></Button>
 
         <SearchBar x:Name="searchBar" Placeholder="Search" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
@@ -21,6 +24,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
     </StackLayout>
 
 </ContentPage>
