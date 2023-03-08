@@ -63,7 +63,7 @@ namespace DLKapp
         // Commands
         public ICommand LoginRequestCommand => new Command(LoginRequest);
          private async void LoginRequest()
-        {
+         {
             if (SaveLoginData == true && Username != null && Password != null)
             {
                 await Xamarin.Essentials.SecureStorage.SetAsync(SS_Keys.password, Password);

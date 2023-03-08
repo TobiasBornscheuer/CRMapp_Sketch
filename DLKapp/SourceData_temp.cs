@@ -5,7 +5,8 @@ using System.Text;
 
 namespace DLKapp
 {
-    public  static class ConvertedTableData_temp
+    // temporary file that simulates the source data from the sql server for the time being
+    public  static class SourceData_temp
     {
         public static TableDataObject[] data = new TableDataObject[]
         {
