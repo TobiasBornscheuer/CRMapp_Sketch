@@ -41,15 +41,16 @@ namespace DLKapp
                     }
                 }
                 // if the ViewModel-Collection is still empty after the search, inform the user that there were no matches
-                if (TableDataObjectList == null)
+                // normally I'd do TableDataObjectList == null, but the ObservableCollection is never null for some reason
+                // This workaround let's the DisplayAlert be fired, but is probaly not an optimal solution
+                if (TableDataObjectList.ToList().Count == 0)
                 {
                     await App.Current.MainPage.DisplayAlert("Information", "There were no matches found, for the search term you provided", "OK");
                 }
             }
-            else // if the user did not provide a search term, inform him of that
-            {
-                await App.Current.MainPage.DisplayAlert("Information", "You did not provide a search term", "OK");
-            }
+            // if there is not text in the searchbar, the Command is never triggered. This is default behavior
+            // Because of that, no DisplayAlert in case of missing search term will be implemented.
+            // There are workarounds, which may be specific to each platform
         }
 
         public ICommand GoToOptionsCommand => new Command(GoToOptions);

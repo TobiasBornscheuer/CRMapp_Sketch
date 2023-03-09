@@ -1,3 +1,4 @@
 ﻿Bug in MainPageViewModel => SearchFunction:
 	The DisplayAlerts are not triggered.
-	Looks like the statements that contain them are never entered either.
+	Looks like the statements that contain them are never entered, because neither the search term nor the ObservableCollection are ever null.
+	Maybe the Command is never even fired, when there is no text in the searchbar
