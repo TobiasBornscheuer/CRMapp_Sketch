@@ -1,4 +1,7 @@
-﻿Bug in MainPageViewModel => SearchFunction:
-	The DisplayAlerts are not triggered.
-	Looks like the statements that contain them are never entered, because neither the search term nor the ObservableCollection are ever null.
-	Maybe the Command is never even fired, when there is no text in the searchbar
+﻿1. When searchbar is empty no Command is fired in case of search button press. This is default behavior.
+2. For some reason the ObservableCollection is never null, even when it is instantiated completely empty and no items are added.
+   Seems like this should not be possible, since all C# classes implement null.
+
+   ToDo:
+   1. Implementing UI response to the Screen being turned (==> Hochformat vs. Querformat)
+   2. Implement device independant UI scaling (device independant units, relative layouts, etc.)
